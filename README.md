@@ -4,7 +4,7 @@ platforms: .Net
 author: anuchandy
 ---
 
-#Getting Started with Compute - Create VMs Using Custom Image Or Specialized VHD - in .Net #
+#Getting Started with Compute - Create Virtual Machines using Custom Image or Specialized VHD - in .Net #
 
       Azure Compute sample for managing virtual machines -
        - Create a virtual machine
