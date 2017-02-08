@@ -4,16 +4,16 @@ platforms: .Net
 author: anuchandy
 ---
 
-#Getting Started with Compute - Create Virtual Machines using Custom Image or Specialized VHD - in .Net #
+#Getting Started with Compute - Create V Ms Using Custom Image Or Specialized V H D - in .Net #
 
-      Azure Compute sample for managing virtual machines -
-       - Create a virtual machine
-       - Deallocate the virtual machine
-       - Generalize the virtual machine
-       - Capture the virtual machine to create a generalized image
-       - Create a second virtual machine using the generalized image
-       - Delete the second virtual machine
-       - Create a new virtual machine by attaching OS disk of deleted VM to it.
+          Azure Compute sample for managing virtual machines -
+           - Create a virtual machine
+           - Deallocate the virtual machine
+           - Generalize the virtual machine
+           - Capture the virtual machine to create a generalized image
+           - Create a second virtual machine using the generalized image
+           - Delete the second virtual machine
+           - Create a new virtual machine by attaching OS disk of deleted VM to it.
 
 
 ## Running this Sample ##
