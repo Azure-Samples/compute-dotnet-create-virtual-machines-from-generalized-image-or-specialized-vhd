@@ -4,8 +4,8 @@
 using Microsoft.Azure.Management.Compute.Fluent;
 using Microsoft.Azure.Management.Compute.Fluent.Models;
 using Microsoft.Azure.Management.Fluent;
-using Microsoft.Azure.Management.Resource.Fluent;
-using Microsoft.Azure.Management.Resource.Fluent.Core;
+using Microsoft.Azure.Management.ResourceManager.Fluent;
+using Microsoft.Azure.Management.ResourceManager.Fluent.Core;
 using Microsoft.Azure.Management.Samples.Common;
 using Newtonsoft.Json.Linq;
 using Renci.SshNet;
@@ -50,11 +50,11 @@ namespace CreateVMsUsingCustomImageOrSpecializedVHD
                 Utilities.Log("Creating a Linux VM");
 
                 var linuxVM = azure.VirtualMachines.Define(linuxVmName1)
-                        .WithRegion(Region.USEast)
+                        .WithRegion(Region.USWest)
                         .WithNewResourceGroup(rgName)
                         .WithNewPrimaryNetwork("10.0.0.0/28")
-                        .WithPrimaryPrivateIpAddressDynamic()
-                        .WithNewPrimaryPublicIpAddress(publicIpDnsLabel)
+                        .WithPrimaryPrivateIPAddressDynamic()
+                        .WithNewPrimaryPublicIPAddress(publicIpDnsLabel)
                         .WithPopularLinuxImage(KnownLinuxVirtualMachineImage.UbuntuServer16_04_Lts)
                         .WithRootUsername(UserName)
                         .WithRootPassword(Password)
@@ -74,7 +74,7 @@ namespace CreateVMsUsingCustomImageOrSpecializedVHD
                 Utilities.PrintVirtualMachine(linuxVM);
 
                 // De-provision the virtual machine
-                DeprovisionAgentInLinuxVM(linuxVM.GetPrimaryPublicIpAddress().Fqdn, 22, UserName, Password);
+                Utilities.DeprovisionAgentInLinuxVM(linuxVM.GetPrimaryPublicIPAddress().Fqdn, 22, UserName, Password);
 
                 //=============================================================
                 // Deallocate the virtual machine
@@ -113,11 +113,11 @@ namespace CreateVMsUsingCustomImageOrSpecializedVHD
                 Utilities.Log("Creating a Linux VM using captured image - " + capturedImageUri);
 
                 var linuxVM2 = azure.VirtualMachines.Define(linuxVmName2)
-                        .WithRegion(Region.USEast)
+                        .WithRegion(Region.USWest)
                         .WithExistingResourceGroup(rgName)
                         .WithNewPrimaryNetwork("10.0.0.0/28")
-                        .WithPrimaryPrivateIpAddressDynamic()
-                        .WithoutPrimaryPublicIpAddress()
+                        .WithPrimaryPrivateIPAddressDynamic()
+                        .WithoutPrimaryPublicIPAddress()
                         .WithStoredLinuxImage(capturedImageUri) // Note: A Generalized Image can also be an uploaded VHD prepared from an on-premise generalized VM.
                         .WithRootUsername(UserName)
                         .WithRootPassword(Password)
@@ -126,7 +126,7 @@ namespace CreateVMsUsingCustomImageOrSpecializedVHD
 
                 Utilities.PrintVirtualMachine(linuxVM2);
 
-                var specializedVhd = linuxVM2.OsUnmanagedDiskVhdUri;
+                var specializedVhd = linuxVM2.OSUnmanagedDiskVhdUri;
                 //=============================================================
                 // Deleting the virtual machine
                 Utilities.Log("Deleting VM: " + linuxVM2.Id);
@@ -144,12 +144,12 @@ namespace CreateVMsUsingCustomImageOrSpecializedVHD
                         + " of deleted VM");
 
                 var linuxVM3 = azure.VirtualMachines.Define(linuxVmName3)
-                        .WithRegion(Region.USEast)
+                        .WithRegion(Region.USWest)
                         .WithExistingResourceGroup(rgName)
                         .WithNewPrimaryNetwork("10.0.0.0/28")
-                        .WithPrimaryPrivateIpAddressDynamic()
-                        .WithoutPrimaryPublicIpAddress()
-                        .WithSpecializedOsUnmanagedDisk(specializedVhd, OperatingSystemTypes.Linux) // New user credentials cannot be specified
+                        .WithPrimaryPrivateIPAddressDynamic()
+                        .WithoutPrimaryPublicIPAddress()
+                        .WithSpecializedOSUnmanagedDisk(specializedVhd, OperatingSystemTypes.Linux) // New user credentials cannot be specified
                         .WithSize(VirtualMachineSizeTypes.StandardD3V2)         // when attaching a specialized VHD
                         .Create();
 
@@ -169,30 +169,7 @@ namespace CreateVMsUsingCustomImageOrSpecializedVHD
                 }
             }
         }
-
-        protected static void DeprovisionAgentInLinuxVM(string host, int port, string userName, string password)
-        {
-            try
-            {
-                using (var sshClient = new SshClient(host, port, userName, password))
-                {
-                    Utilities.Log("Trying to de-provision: " + host);
-                    sshClient.Connect();
-                    var commandToExecute = "sudo waagent -deprovision+user --force";
-                    using (var command = sshClient.CreateCommand(commandToExecute))
-                    {
-                        var commandOutput = command.Execute();
-                        Utilities.Log(commandOutput);
-                    }
-                    sshClient.Disconnect();
-                }
-            }
-            catch (Exception ex)
-            {
-                Utilities.Log(ex);
-            }
-        }
-
+        
         public static void Main(string[] args)
         {
             try
@@ -203,7 +180,7 @@ namespace CreateVMsUsingCustomImageOrSpecializedVHD
 
                 var azure = Azure
                     .Configure()
-                    .WithLogLevel(HttpLoggingDelegatingHandler.Level.BASIC)
+                    .WithLogLevel(HttpLoggingDelegatingHandler.Level.Basic)
                     .Authenticate(credentials)
                     .WithDefaultSubscription();
 

@@ -4,7 +4,7 @@ platforms: .Net
 author: anuchandy
 ---
 
-#Getting Started with Compute - Create V Ms Using Custom Image Or Specialized V H D - in .Net #
+# Getting Started with Compute - Create V Ms Using Custom Image Or Specialized V H D - in .Net #
 
           Azure Compute sample for managing virtual machines -
            - Create a virtual machine
