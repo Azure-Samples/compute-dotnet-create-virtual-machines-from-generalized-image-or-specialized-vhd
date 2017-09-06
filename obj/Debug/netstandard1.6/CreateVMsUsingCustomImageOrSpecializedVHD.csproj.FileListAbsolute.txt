@@ -1,2 +1,0 @@
-C:\Sources\dotnet-samples\compute-dotnet-create-virtual-machines-from-generalized-image-or-specialized-vhd\bin\Debug\netstandard1.6\CreateVMsUsingCustomImageOrSpecializedVHD.deps.json
-C:\Sources\dotnet-samples\compute-dotnet-create-virtual-machines-from-generalized-image-or-specialized-vhd\obj\Debug\netstandard1.6\CreateVMsUsingCustomImageOrSpecializedVHD.csproj.CoreCompileInputs.cache

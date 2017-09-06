@@ -1,4 +1,0 @@
-C:\Sources\dotnet-samples\compute-dotnet-create-virtual-machines-from-generalized-image-or-specialized-vhd\bin\Debug\net452\CreateVMsUsingCustomImageOrSpecializedVHD.runtimeconfig.json
-C:\Sources\dotnet-samples\compute-dotnet-create-virtual-machines-from-generalized-image-or-specialized-vhd\bin\Debug\net452\CreateVMsUsingCustomImageOrSpecializedVHD.runtimeconfig.dev.json
-C:\Sources\dotnet-samples\compute-dotnet-create-virtual-machines-from-generalized-image-or-specialized-vhd\obj\Debug\net452\CreateVMsUsingCustomImageOrSpecializedVHD.csproj.CreateVMsUsingCustomImageOrSpecializedVHD.exe.config
-C:\Sources\dotnet-samples\compute-dotnet-create-virtual-machines-from-generalized-image-or-specialized-vhd\obj\Debug\net452\CreateVMsUsingCustomImageOrSpecializedVHD.csproj.CoreCompileInputs.cache
