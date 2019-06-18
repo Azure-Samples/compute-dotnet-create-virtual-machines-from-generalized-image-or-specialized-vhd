@@ -1,7 +1,7 @@
 ---
 services: Compute
 platforms: dotnet
-author: anuchandy
+author: yaohaizh
 ---
 
 # Getting started on creating virtual machines from generalized image or specialized VHD in C# #
@@ -20,7 +20,7 @@ author: anuchandy
 
 To run this sample:
 
-Set the environment variable `AZURE_AUTH_LOCATION` with the full path for an auth file. See [how to create an auth file](https://github.com/Azure/azure-libraries-for-java/blob/master/AUTH.md).
+Set the environment variable `AZURE_AUTH_LOCATION` with the full path for an auth file. See [how to create an auth file](https://github.com/Azure/azure-libraries-for-net/blob/master/AUTH.md).
 
     git clone https://github.com/Azure-Samples/compute-dotnet-create-virtual-machines-from-generalized-image-or-specialized-vhd.git
 
