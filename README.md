@@ -4,21 +4,21 @@ languages:
 - csharp
 products:
 - azure
-services: Compute
-platforms: dotnet
-author: yaohaizh
+extensions:
+- services: Compute
+- platforms: dotnet
 ---
 
 # Getting started on creating virtual machines from generalized image or specialized VHD in C# #
 
-          Azure Compute sample for managing virtual machines -
-           - Create a virtual machine
-           - Deallocate the virtual machine
-           - Generalize the virtual machine
-           - Capture the virtual machine to create a generalized image
-           - Create a second virtual machine using the generalized image
-           - Delete the second virtual machine
-           - Create a new virtual machine by attaching OS disk of deleted VM to it.
+ Azure Compute sample for managing virtual machines -
+  - Create a virtual machine
+  - Deallocate the virtual machine
+  - Generalize the virtual machine
+  - Capture the virtual machine to create a generalized image
+  - Create a second virtual machine using the generalized image
+  - Delete the second virtual machine
+  - Create a new virtual machine by attaching OS disk of deleted VM to it.
 
 
 ## Running this Sample ##
