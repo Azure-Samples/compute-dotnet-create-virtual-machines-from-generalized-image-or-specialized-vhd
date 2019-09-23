@@ -7,6 +7,7 @@ products:
 extensions:
 - services: Compute
 - platforms: dotnet
+description: "Azure Compute sample for managing virtual machines."
 ---
 
 # Getting started on creating virtual machines from generalized image or specialized VHD in C# #
