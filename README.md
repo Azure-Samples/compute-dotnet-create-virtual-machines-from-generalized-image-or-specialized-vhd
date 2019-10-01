@@ -10,7 +10,7 @@ extensions:
 description: "Azure Compute sample for managing virtual machines."
 ---
 
-# Getting started on creating virtual machines from generalized image or specialized VHD in C# #
+# Getting started on creating virtual machines from generalized image or specialized VHD in C#
 
  Azure Compute sample for managing virtual machines -
   - Create a virtual machine
@@ -28,13 +28,15 @@ To run this sample:
 
 Set the environment variable `AZURE_AUTH_LOCATION` with the full path for an auth file. See [how to create an auth file](https://github.com/Azure/azure-libraries-for-net/blob/master/AUTH.md).
 
-    git clone https://github.com/Azure-Samples/compute-dotnet-create-virtual-machines-from-generalized-image-or-specialized-vhd.git
+```bash
+git clone https://github.com/Azure-Samples/compute-dotnet-create-virtual-machines-from-generalized-image-or-specialized-vhd.git
 
-    cd compute-dotnet-create-virtual-machines-from-generalized-image-or-specialized-vhd
+cd compute-dotnet-create-virtual-machines-from-generalized-image-or-specialized-vhd
 
-    dotnet build
+dotnet build
 
-    bin\Debug\net452\CreateVMsUsingCustomImageOrSpecializedVHD.exe
+bin\Debug\net452\CreateVMsUsingCustomImageOrSpecializedVHD.exe
+```
 
 ## More information ##
 
